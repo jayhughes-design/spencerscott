@@ -1,0 +1,91 @@
+@import "variables";
+@import "node_modules/bootstrap/scss/bootstrap";
+
+
+html, body {
+    // height: 100%;
+}
+
+body {
+   background: white;
+}
+
+h1, h2, h3, h4, h5 {
+   font-family: "Arimo";
+   font-weight: 700;
+   margin: 1rem 0;
+}
+
+
+@include media-breakpoint-up(md) {
+
+	.row {
+		h1, h2, h3, ,h4, h5 {
+			position: relative;
+			font-weight: bold!important;
+			width: 100%;
+			margin-bottom: 1rem;
+		}
+		section {
+
+		}
+	}
+	
+	h4 {
+		font-size: 39px!important;
+	}
+}
+
+p, span, ul, input, textarea, li {
+	font-family: "Arimo", arial;
+}
+
+a {
+	&:hover {
+		color: $brightBlue;
+	}
+}
+
+hr {
+	border: none;
+    display: flex;
+    margin: 0 0 2rem 0;
+}
+
+section {
+	padding: 2rem;
+	color: #272727;
+	position: relative;
+	p, li, span, textarea {
+		font-weight: 300;
+		line-height: 34px;
+	}
+	b {
+		span {
+			font-weight: bold;
+		}
+	}
+	p {
+		a {
+			font-weight: bold;
+    		text-decoration: underline;
+		}
+	}
+}
+
+form {
+	width: 100%;
+	.form-group {
+		position: relative;
+		.info {
+			background: none;
+			border: none;
+			position: absolute;
+			top: 2px;
+			right: 5px;
+		}
+		img {
+			margin-top: 1rem;
+		}
+	}
+}

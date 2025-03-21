@@ -1,0 +1,67 @@
+<% include ../partials/header %>
+    <section class="admin">
+        <div class="container">
+            <div class="row">
+
+                <h2>Jobs admin</h2>
+
+                <div class="row d-lg-block  d-flex h-100">
+
+                    <% jobs.reverse().forEach(function(job, index){ %>
+
+                        <% var n = index.toString(); %>
+                            <div class="col-12 col-lg-12 col-xl-6 job-line num-<%= n %> float-left" style="order: <%= n %>;">
+                                <a href="/jobs/<%= job.slug %>">
+                                    <%= job.role %>
+                                </a>
+                                <p>
+                                    <%= job.date %>
+                                </P>
+                                <div class="authors">
+                                    <img src="<%= job.author.image %>" alt="" />
+                                    <span>
+                                        <%= job.author.firstName %>
+                                            <%= job.author.lastName %>
+                                    </span>
+
+                                </div>
+                                <a class="btn btn-xs btn-warning" href="/jobs/<%= job._id %>/edit">Edit</a>
+                                <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-job="<%= job._id %>" data-title="<%= job.role %>" data-target="#exampleModal">
+                                    Delete
+                                </button>
+                            </div>
+
+                            <% }); %>
+
+                </div>
+
+                <!-- Button trigger modal -->
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to delete '<span id="job-title"></span>'' ?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <form id="delete-form" action="" method="POST">
+                                    <button class="btn btn-xs btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <% include ../partials/footer %>

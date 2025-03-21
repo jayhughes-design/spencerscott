@@ -1,0 +1,46 @@
+<% include ../partials/header %>
+
+    <section class="recent-jobs">
+        <div class="container">
+            <div class="row">
+
+                <% if (!user) { %>
+                    <h4>Latest Jobs</h4>
+                    <!-- <a href="/auth/linkedin" class="btn blue linked-in">Connect your <img src="img/loading.svg" data-src="/img/jobs/linked-in.png" alt="Connect With Linked In" /></a> -->
+                    <% } else if (currentUser && currentUser.hash) { %>
+                        <h4>Latest Jobs</h4>
+                        <% } else  { %>
+                            <h4>Hi
+                                <%= user.name.givenName %>, here's our latest jobs.</h4>
+                            <% } %>
+
+                                <div class="row d-lg-block d-flex h-100">
+
+                                    <% jobs.slice(-30).reverse().forEach(function(job, index){ %>
+
+                                        <% var n = index.toString(); %>
+
+                                            <% if (index >= 7 && index <= 30) { %>
+                                                <div class="col-md-3 role clip num-<%= n %> float-left " style="order: <%= n %>;">
+                                                    <a href="/jobs/<%= job.slug %>">
+                                                        <% include ../job-listing %>
+                                                    </a>
+                                                </div>
+                                                <% } else { %>
+                                                    <div class="col-12 col-lg-12 col-xl-6 role num-<%= n %> float-left" style="order: <%= n %>;">
+                                                        <a href="/jobs/<%= job.slug %>">
+                                                            <% include ../job-listing %>
+                                                        </a>
+                                                    </div>
+                                                    <% } %>
+
+                                                        <% }); %>
+
+                                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <% include ../partials/newsletter %>
+        <% include ../partials/footer %>

@@ -1,0 +1,36 @@
+<div class="image">
+    <% if (job.amazon) { %>
+        <img src="img/loading.svg" data-src="https://spencerscott.s3.amazonaws.com/<%= job.amazon %>">
+        <% } else  { %>
+            <img src="img/loading.svg" data-src="<%= job.image %>">
+            <% } %>
+</div>
+<div class="caption">
+    <h5>
+        <%= job.role %>
+    </h5>
+    <p>
+        <%= job.preview %>
+    </p>
+</div>
+<div class="summary">
+    <ul>
+        <li>
+            <h6>
+                <%= job.location %>
+            </h6>
+            <span>|</span>
+        </li>
+        <li>
+            <h6>
+                <%= job.term %>
+            </h6>
+            <span>|</span>
+        </li>
+        <li>
+            <h6>
+                <%= job.author.firstName %>
+            </h6>
+        </li>
+    </ul>
+</div>

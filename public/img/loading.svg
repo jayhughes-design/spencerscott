@@ -1,0 +1,5 @@
+<svg height="500" width="500">
+  <rect id="rec" x="100" y="100" style="fill:lime"> 
+     <animate attributeName="fill" attributeType="CSS" begin="0s" dur="3s" fill="freeze" from="lime" to="red" /> 
+  </rect>
+</svg>

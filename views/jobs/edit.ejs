@@ -1,0 +1,79 @@
+<% include ../partials/header %>
+<section>
+    <div class="container edit">
+        <h3>Edit "<%= job.title %>"</h3>
+
+        <form action="/jobs/<%= job._id %>?_method=PUT" method="POST">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>The title you want to be displayed on the individual job listing</label>
+                        <input class="form-control" type="text" name="job[title]" value="<%= job.title %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>The title you want to be display on the list of jobs</label>
+                        <input class="form-control" type="text" name="job[role]" value="<%= job.role %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Main image</label>
+                        <input type="text" class="form-control"  name="job[image]" placeholder="Pexels Link" value="<%= job.image %>" required><span class="info" data-toggle="tooltip" data-placement="top" title="We need to phase this out. Download the image and upload it again using the control below." >
+                          <i class="fas fa-info-circle"></i>
+                        </span>
+                        <% if (job.image) { %>
+                        <img id="preview-image" src="<%= job.image %>"  />
+                        <% } %>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Enter a url here (spaces restricted, no special characters like #,!,?,*.. or people called Sam Fawdry).</label>
+                        <input type="text" id="domain-url" class="form-control" name="job[slug]" placeholder="some-nice-url" value="<%= job.slug %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>This is limited to 55 characters. This helps when posting links on social media.</label>
+                        <input class="form-control" id="limit55" type="text" name="job[ogDesc]" placeholder="Short Description" value="<%= job.ogDesc %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>This is the preview, so usually the fist paragraph or sentence for the job post.</label>
+                        <textarea class="form-control" type="text" name="job[preview]" placeholder="Preview, so a bit more text" required><%= job.preview %></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Location - try and keep short</label>
+                        <input class="form-control" type="text" name="job[location]" value="<%= job.location %>" required>
+                    </div>
+                   <div class="form-group">
+                        <label>Contract or perm? - try and keep short</label>
+                        <input class="form-control" type="text" name="job[term]" value="<%= job.term %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Salary or rate?</label>
+                        <input class="form-control" type="text" name="job[price]" value="<%= job.price %>" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row copy">
+                <div class="col">
+                    <div class="form-group copy">
+                        <label>Main copy for job - try not to repeat information!</label>
+                        <textarea class="form-control froala" type="text" name="job[description]"><%= job.description %></textarea>
+                    </div>
+                    <div class="form-group copy">
+                        <button class="btn btn-lg btn-primary btn-block">Update "<%= job.title %>"</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="/js/ss.js"></script>
+<script src="/js/createJob.js"></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.6/js/froala_editor.min.js'></script>
+
+</body>
+
+</html>

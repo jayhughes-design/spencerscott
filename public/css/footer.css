@@ -1,0 +1,22 @@
+/* Footer Styles */
+.footer {
+  background: #292929;
+  position: relative;
+  z-index: 20; }
+  .footer .row:first-child {
+    border-bottom: 1px solid #E7E7E7; }
+  .footer h3 {
+    color: #D90368;
+    font-size: 39px;
+    font-weight: bold; }
+  .footer section {
+    color: white; }
+    .footer section a {
+      color: white; }
+    .footer section .col-md-3:first-child ul {
+      border-top: none; }
+    .footer section ul {
+      list-style: none;
+      padding: 2rem 0; }
+      .footer section ul li {
+        margin-bottom: 0.5rem; }

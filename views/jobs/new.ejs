@@ -1,0 +1,87 @@
+<% include ../partials/header %>
+<section>
+<div class="container edit">
+    <h3>Create A New Job</h3>
+    <form action="/jobs" method="POST">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label>The title you want to be displayed on the individual job listing</label>
+                    <input class="form-control" type="text" name="title" placeholder="Job Title" required>
+                </div>
+                <div class="form-group">
+                    <label>The title you want to be display on the list of jobs</label>
+                    <input class="form-control" type="text" name="role" placeholder="Role Title" required>
+                </div>
+                <div class="form-group">
+                    <label>Main image</label>
+                    <input type="text" class="form-control" name="image" placeholder="Pexels Link" required>
+                </div>
+                
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Enter a url here (spaces restricted, no special characters like #,!,?,*.. or people called Sam Fawdry).</label>
+                    <input type="text" id="domain-url" class="form-control" name="slug" placeholder="some-nice-url" required>
+                </div>
+           
+                <div class="form-group">
+                    <label>This is limited to 55 characters. This helps when posting links on social media.</label>
+                    <input class="form-control" type="text" id="limit55" name="ogDesc" placeholder="Short Description" required>
+                </div>
+                <div class="form-group">
+                    <label>This is the preview, so usually the fist paragraph or sentence for the job post.</label>
+                    <textarea class="form-control" type="text" name="preview" placeholder="Preview, so a bit more text" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Location - try and keep short</label>
+                    <input class="form-control" type="text" name="location" placeholder="Location" required>
+                </div>
+               <div class="form-group">
+                    <label>Contract or perm? - try and keep short</label>
+                    <input class="form-control" type="text" name="term" placeholder="Contract or Perm?" required>
+                </div>
+                <div class="form-group">
+                    <label>Salary or rate?</label>
+                    <input class="form-control" type="text" name="price" placeholder="50'000 for e.g." required>
+                </div>
+            </div>
+        </div>
+        <div class="row copy">
+             <div class="col-12">
+                <div class="form-group copy">
+                    <label>Main copy for job - try not to repeat information!</label>
+                    <textarea class="form-control froala" type="text" name="description" placeholder="Description">
+                    </textarea>
+                </div>
+                <div class="form-group copy">
+                    <button class="btn btn-lg btn-primary btn-block">Create role</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- Include external JS libs. -->
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+
+<!-- Include Editor JS files. -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.1/js/froala_editor.pkgd.min.js"></script>
+
+
+<script src="/js/ss.js"></script>
+<script src="/js/createJob.js"></script>
+
+
+
+</body>
+
+</html>

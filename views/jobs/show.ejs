@@ -1,0 +1,73 @@
+<% include ../partials/header %>
+    <section class="hero job-heading full-width animated fadeIn">
+        <% if (job.amazon) { %>
+            <img src="https://spencerscott.s3.amazonaws.com/<%= job.amazon %>" alt="<%=job.title%>">
+            <% } else  { %>
+                <img src="<%= job.image %>" alt="<%=job.title%>">
+                <% } %>
+                    <div class="container">
+                        <div class="row">
+                            <h2>
+                                <%=job.title%>
+                            </h2>
+                            <div class="user-controls">
+                                <% if (currentUser) { %>
+                                    <input type="hidden" value="<%= job.author.firstName %>-<%= job.author.lastName %>" id="job-author" />
+                                    <input type="text" id="link-share" />
+                                    <script>
+                                        var url = window.location.href;
+                                        var user = document.getElementById("job-author").value;
+                                        var link = url + '?utmsource=job-advert&utm_medium=linkedin&utm_campaign=' + user;
+
+                                        document.getElementById("link-share").value = link;
+                                    </script>
+                                    <a class="btn btn-xs btn-warning" href="/jobs/<%= job._id %>/edit">Edit</a>
+                                    <form id="delete-form" action="/jobs/<%= job._id%>?_method=DELETE" method="POST">
+                                        <button class="btn btn-xs btn-danger">Delete</button>
+                                    </form>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </div>
+    </section>
+    <section id="individual-job" class="individual-job">
+        <div class="container">
+            <div class="row">
+                <div id="ind-job-cap" class="col-md-4">
+                    <div class="job-ind-caption">
+                        <h5><i class="fas fa-user"></i>
+                            <%= job.role %>
+                        </h5>
+                        <h6><i class="fas fa-location-arrow"></i>
+                            <%= job.location %>
+                        </h6>
+                        <h6><i class="fas fa-file-alt"></i>
+                            <%= job.term %>
+                        </h6>
+                        <h6><i class="fas fa-pound-sign"></i>
+                            <%= job.price %>
+                        </h6>
+                        <div class="agent">
+                            <img src="<%= job.author.image %>" alt="" />
+                            <h6>
+                                <%= job.author.firstName %>
+                                    <%= job.author.lastName %>
+                            </h6>
+                        </div>
+                        <a href="mailto:<%= job.author.username %>?&subject=Applicant for: '<%= job.role %>'&body=Please send us an email with your full name, your latest CV attached and a mobile number. We will get back to you shortly." class="btn btn-lrg" onclick="__gaTracker('send', 'event', 'buttons', 'click', 'application')">Apply</a>
+                    </div>
+                </div>
+                <div id="ind-job-desc" class="col-md-8">
+                    <div class="description">
+                        <div class="caption-full">
+                            <p>
+                                <%- job.description %>
+                            </p>
+                        </div>
+                    </div>
+                    <a href="/jobs" class="btn">View all jobs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <% include ../partials/footer %>

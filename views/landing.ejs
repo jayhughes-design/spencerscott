@@ -1,0 +1,35 @@
+<% include partials/header %>
+    <section class="hero full-width animated fadeIn">
+        <h1>Spencer Scott</h1>
+        <img src="img/loading.svg" class="home-logo" data-src="/img/spencer-scott-white.svg" alt="Spencer Scott" />
+        <!-- <img src="img/loading.svg" class="hero-image"  data-src="<%= ogImage %>" alt="Spencer Scott - homepage background image"> -->
+        <img src="img/loading.svg" class="hero-image" data-src="/img/spencer-scott-landing.jpg" alt="Spencer Scott - homepage background image">
+    </section>
+    <section id="home-jobs" class="recent-jobs">
+        <div class="container">
+            <div class="row">
+                <h4>Our Job Market</h4>
+                <p>We're not your average tech recruiter. The roles below you see are live. </p>
+                <!-- <a href="/jobs" class="btn btn-primary">View All Jobs</a> -->
+                <div class="row d-lg-block d-flex">
+
+                    <% jobs.slice(-15).reverse().forEach(function(job, index){ %>
+
+                        <% var n = index.toString(); %>
+
+                            <% if (index >= 7 && index <= 15) { %>
+                                <div class="col-md-3 role clip num-<%= n %> float-left " style="order: <%= n %>;">
+                                    <% } else { %>
+                                        <div class="col-12 col-lg-12 col-xl-6 role num-<%= n %> float-left" style="order: <%= n %>;">
+                                            <% } %>
+                                                <a href="/jobs/<%= job.slug %>">
+                                                    <% include job-listing %>
+                                                </a>
+                                        </div>
+                                        <% }); %>
+                                </div>
+                </div>
+            </div>
+    </section>
+    <% include partials/newsletter %>
+        <% include partials/footer %>

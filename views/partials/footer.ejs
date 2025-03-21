@@ -1,0 +1,81 @@
+<footer id="footer" class="footer">
+    <section>
+        <div class="container">
+            <div class="row">
+                <h3>Something Afoot</h3>
+                <p>You've read all of our lovely content. Here's some more links to keep you going.</p>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6">
+                    <ul>
+                        <li></li>
+                        <% jobs.slice(-6).reverse().forEach(function(job){ %>
+                            <% if (job.slug) { %>
+                                <a href="/jobs/<%= job.slug %>">
+                                    <li>
+                                        <a href="/jobs/<%= job.slug %>">
+                                            <%= job.role %>
+                                        </a>
+                                    </li>
+                                    <% } else  { %>
+                                        <li>
+                                            <a href="/jobs/<%= job._id %>">
+                                                <%= job.role %>
+                                            </a>
+                                        </li>
+                                        <% } %>
+
+                                            <% }); %>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <ul>
+                        <li></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">Past, present &amp; future</a></li>
+                        <li><a href="/jobs">Our live roles</a></li>
+                        <li><a href="/team">Meet the team</a></li>
+                        <li><a href="/join">Vacancies in our team</a></li>
+                        <li><a href="/contact">Get in contact</a></li>
+                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <ul>
+                        <li></li>
+                        <li><a href="http://twitter.com/Hi_SpencerScott" target="_blank">Twitter</a></li>
+                        <li><a href="https://www.instagram.com/hi_spencerscott/" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/company/spencer-scott-ltd/" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <span>&copy; Spencer Scott 2024</span>
+                <!-- <a href="https://www.instagram.com/kaiserbear" class="center kb" target="_blank"><img src="/img/kb.png" alt="Website designed by Kaiser Bear" /></a> -->
+            </div>
+        </div>
+    </section>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="/js/ss.js"></script>
+<!-- <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script> -->
+<% if (env !== "local") { %>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-103787886-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-103787886-1');
+</script>
+
+    <% } %>
+        </body>
+
+        </html>

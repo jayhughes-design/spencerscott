@@ -1,0 +1,41 @@
+@import "variables";
+
+/* Footer Styles */
+
+.footer {
+	background: #292929;
+	position: relative;
+	z-index: 20;
+	.row {
+		&:first-child {
+			border-bottom: 1px solid #E7E7E7;
+		}
+	}
+	h3 {
+		color: $pink;
+		font-size: 39px;
+		font-weight: bold;
+	}
+	section {
+		color: white;
+		a {
+			color: white;
+		}
+		.col-md-3 {
+			&:first-child {
+				ul {
+					border-top: none;
+				}
+			}
+		}
+		ul {
+			list-style: none;
+			// border-top: 1px solid grey;
+			padding: 2rem 0;
+			li {
+				margin-bottom: 0.5rem;
+			}
+		}
+	}
+
+}
